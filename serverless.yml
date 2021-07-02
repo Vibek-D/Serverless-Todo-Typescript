@@ -1,0 +1,28 @@
+service: typed-serverless
+
+frameworkVersion: '2'
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-central-1
+
+functions:
+  ping:
+    handler: src/functions.ping
+    description: Lambda function with typescript
+    memorySize: 256
+    events:
+      - http:
+          path: /ping
+          method: get
+          cors: true
