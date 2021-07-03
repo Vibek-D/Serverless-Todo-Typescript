@@ -16,10 +16,10 @@ export async function ping (event: APIGatewayProxyEvent, context: Context): Prom
   const todo: TodoItem = { id, done: false, createdAt: new Date().toISOString(), name };
   const docClient = new AWS.DynamoDB.DocumentClient();
 
-  await docClient.put({
-    TableName: process.env.TODOS_TABLE,
-    Item: todo
-  }).promise();
+  // await docClient.put({
+  //   TableName: process.env.TODOS_TABLE,
+  //   Item: todo
+  // }).promise();
 
   return {
     statusCode: 201,

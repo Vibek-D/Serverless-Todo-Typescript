@@ -28,10 +28,6 @@ async function ping(event, context) {
     const id = uuid.v4();
     const todo = { id, done: false, createdAt: new Date().toISOString(), name };
     const docClient = new AWS.DynamoDB.DocumentClient();
-    await docClient.put({
-        TableName: process.env.TODOS_TABLE,
-        Item: todo
-    }).promise();
     return {
         statusCode: 201,
         body: JSON.stringify({

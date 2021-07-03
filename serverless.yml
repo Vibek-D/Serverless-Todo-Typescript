@@ -7,6 +7,9 @@ plugins:
   - serverless-plugin-typescript
   - serverless-dynamodb-local
 
+package:
+  indivisually: true
+
 custom:
   serverless-offline:
     httpPort: 4000
