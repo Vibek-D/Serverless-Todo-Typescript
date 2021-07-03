@@ -6,6 +6,7 @@ plugins:
   - serverless-offline
   - serverless-plugin-typescript
   - serverless-dynamodb-local
+  - serverless-webpack
 
 package:
   indivisually: true
