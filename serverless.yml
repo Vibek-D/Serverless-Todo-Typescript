@@ -5,11 +5,26 @@ frameworkVersion: '2'
 plugins:
   - serverless-offline
   - serverless-plugin-typescript
+  - serverless-dynamodb-local
+  - serverless-webpack
+
+package:
+  indivisually: true
 
 custom:
   serverless-offline:
     httpPort: 4000
-
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+  dynamodb:
+    start:
+      port: 5000
+      inMemory: true
+      migrate: true
+    stages:
+    - dev
+  
 provider:
   name: aws
   runtime: nodejs12.x
