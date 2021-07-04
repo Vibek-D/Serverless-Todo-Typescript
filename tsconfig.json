@@ -1,26 +1,35 @@
+// {
+//   "compilerOptions": {
+//     "target": "es2020",
+//     "lib": [ "es2020" ],
+//     "outDir": "./dist",
+//     "module": "commonjs",
+//     "experimentalDecorators": true,
+//     "emitDecoratorMetadata": true,
+//     "sourceMap": true,
+//     "strict": true,
+//     "noImplicitAny": true,
+//     "noUnusedLocals": false,
+//     "noUnusedParameters": true,
+//     "noImplicitReturns": true,
+//     "esModuleInterop": true,
+//     "allowSyntheticDefaultImports": true,
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "removeComments": true,
+//     "resolveJsonModule": true,
+//     "declaration": true,
+//     "strictNullChecks": true
+//   },
+//   "include": ["./src", "./webpack.config.ts"],
+//   "exclude": ["./dist", "./node_modules"]
+// }
+
 {
   "compilerOptions": {
-    "target": "es2020",
-    "lib": [ "es2020" ],
-    "outDir": "./dist",
+    "alwaysStrict": true,
     "module": "commonjs",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "sourceMap": true,
-    "strict": true,
     "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "declaration": true,
-    "strictNullChecks": true
-  },
-  "include": ["./src"],
-  "exclude": ["./dist"]
+    "target": "es2019"
+  }
 }
