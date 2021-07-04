@@ -6,15 +6,17 @@ plugins:
   - serverless-offline
   - serverless-plugin-typescript
   - serverless-dynamodb-local
-package:
-  individually: true
+  # - serverless-webpack
+
+# package:
+#   individually: true
 
 custom:
   serverless-offline:
     httpPort: 4000
   webpack:
     webpackConfig: './webpack.config.js'
-    includeModules: true
+    includeModules: false
     packager: 'npm'
   dynamodb:
     start:
