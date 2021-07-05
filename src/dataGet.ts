@@ -1,7 +1,7 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
 import * as AWS  from 'aws-sdk';
 import * as uuid from 'uuid';
-import { TodoItem } from '../models/todoItem';
+// import { TodoItem } from '../models/todoItem';
 
 export type LambdaResponse = {
   statusCode: number;
@@ -13,7 +13,7 @@ export async function getData (event: APIGatewayProxyEvent, context: Context): P
   console.log(context);
   const { name }:any = JSON.parse(event.body || '{}');
   const id:any = uuid.v4();
-  const todo: TodoItem = { id, done: false, createdAt: new Date().toISOString(), name };
+  // const todo: TodoItem = { id, done: false, createdAt: new Date().toISOString(), name };
   const docClient = new AWS.DynamoDB.DocumentClient();
 
   // await docClient.put({
@@ -23,16 +23,11 @@ export async function getData (event: APIGatewayProxyEvent, context: Context): P
 
   return {
     statusCode: 201,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
     body: JSON.stringify({
-      item: todo
+      // item: todo
     })
   };
-
-  // return {
-  //   statusCode: 200,
-  //   headers: {
-  //     'Access-Control-Allow-Origin': '*',
-  //   },
-  //   body: JSON.stringify('Hello from Typed-Lambda'),
-  // }
 };
