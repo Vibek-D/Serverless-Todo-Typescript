@@ -9,7 +9,7 @@ export type LambdaResponse = {
   body: string;
 }
 
-export async function ping (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
+export async function getData (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
   console.log(context);
   const { name }:any = JSON.parse(event.body || '{}');
   const id:any = uuid.v4();
