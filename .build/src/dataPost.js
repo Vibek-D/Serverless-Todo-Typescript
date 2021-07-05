@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.postData = void 0;
 const uuid = require("uuid");
 const todoItem_1 = require("../models/todoItem");
-let dynamoose = require('dynamoose');
+var dynamoose = require('dynamoose');
 dynamoose.local('http://localhost:8000');
 async function postData(event, context) {
     const data = JSON.parse(event.body || '{}');

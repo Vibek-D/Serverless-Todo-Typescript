@@ -2,7 +2,7 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda
 import * as AWS  from 'aws-sdk';
 import * as uuid from 'uuid';
 import { todoSchema } from '../models/todoItem';
-let dynamoose = require('dynamoose');
+var dynamoose = require('dynamoose');
 dynamoose.local('http://localhost:8000');
 
 export type LambdaResponse = {

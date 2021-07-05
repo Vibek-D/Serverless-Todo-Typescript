@@ -20,7 +20,7 @@ custom:
     packager: 'npm'
   dynamodb:
     start:
-      port: 8000
+      port: 5000
       inMemory: true
       migrate: true
     stages:
