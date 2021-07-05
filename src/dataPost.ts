@@ -37,7 +37,7 @@ export async function postData (event: APIGatewayProxyEvent, context: Context): 
 
     try {
         await myUser.save();
-        console.log("Save operation was successful.");
+        console.log("Save operation was successful");
     } catch (error) {
         console.error(error);
     }

@@ -22,12 +22,12 @@ async function postData(event, context) {
     console.log(data);
     const myUser = new todoItem_1.todoSchema({
         "id": uuid.v4(),
-        "name": "Tim",
-        "done": true
+        "name": name,
+        "done": done
     });
     try {
         await myUser.save();
-        console.log("Save operation was successful.");
+        console.log("Save operation was successful");
     }
     catch (error) {
         console.error(error);
@@ -38,12 +38,12 @@ async function postData(event, context) {
     //     } catch (error) {
     //     console.error(error);
     //     }
-    // const docClient = new AWS.DynamoDB.DocumentClient();
-    // const todo: todoSchema = { id, done: false, createdAt: new Date().toISOString(), name };
-    // await docClient.put({
-    //   TableName: process.env.TODOS_TABLE,
-    //   Item: todo
-    // }).promise();
+    //   const docClient = new AWS.DynamoDB.DocumentClient();
+    //   const todo: todoSchema = { id, done: false, createdAt: new Date().toISOString(), name };
+    //   await docClient.put({
+    //     TableName: process.env.TODOS_TABLE,
+    //     Item: todo
+    //   }).promise();
     return {
         statusCode: 201,
         headers: {
