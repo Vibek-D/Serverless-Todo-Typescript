@@ -3,19 +3,41 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.postData = void 0;
 const uuid = require("uuid");
 const todoItem_1 = require("../models/todoItem");
-var dynamoose = require('dynamoose');
-dynamoose.local('http://localhost:8000');
+const dynamoose = require("dynamoose");
+dynamoose.aws.ddb.local("http://localhost:8000");
+// var options = {
+//     region: 'localhost',
+//     endpoint: 'http://localhost:8000',
+// };
+// const docClient = new AWS.DynamoDB.DocumentClient(options);
+dynamoose.aws.sdk.config.update({
+    accessKeyId: 'password',
+    secretAccessKey: 'password',
+    region: 'password'
+});
 async function postData(event, context) {
     const data = JSON.parse(event.body || '{}');
     const name = data.name;
     const done = data.done;
+    console.log(data);
+    const myUser = new todoItem_1.todoSchema({
+        "id": uuid.v4(),
+        "name": "Tim",
+        "done": true
+    });
     try {
-        var newData = await todoItem_1.todoSchema.create({ id: uuid.v4(), name: name, done: done });
-        console.log(newData);
+        await myUser.save();
+        console.log("Save operation was successful.");
     }
     catch (error) {
         console.error(error);
     }
+    //   try {
+    //     var newData = await todoSchema.create({ id: uuid.v4(), name: name, done: done });
+    //     console.log(newData);
+    //     } catch (error) {
+    //     console.error(error);
+    //     }
     // const docClient = new AWS.DynamoDB.DocumentClient();
     // const todo: todoSchema = { id, done: false, createdAt: new Date().toISOString(), name };
     // await docClient.put({
@@ -28,7 +50,7 @@ async function postData(event, context) {
             'Access-Control-Allow-Origin': '*',
         },
         body: JSON.stringify({
-            item: newData
+            item: myUser
         })
     };
 }

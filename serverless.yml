@@ -20,13 +20,9 @@ custom:
     packager: 'npm'
   dynamodb:
     start:
-      port: 5000
+      port: 8000
       inMemory: true
       migrate: true
-    stages:
-      - dev
-    migration:
-      dir: offline/migrations
   
 provider:
   name: aws
