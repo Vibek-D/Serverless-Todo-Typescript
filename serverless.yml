@@ -20,11 +20,9 @@ custom:
     packager: 'npm'
   dynamodb:
     start:
-      port: 5000
+      port: 8000
       inMemory: true
       migrate: true
-    stages:
-    - dev
   
 provider:
   name: aws
@@ -33,12 +31,32 @@ provider:
   region: eu-central-1
 
 functions:
-  ping:
-    handler: src/functions.ping
-    description: Lambda function with typescript
+  getData:
+    handler: src/dataGet.getData
+    description: Lambda function to get data
     memorySize: 256
     events:
       - http:
-          path: /ping
+          path: /get
           method: get
+          cors: true
+          
+  postData:
+    handler: src/dataPost.postData
+    description: Lambda function to post data
+    memorySize: 256
+    events:
+      - http:
+          path: /post
+          method: post
+          cors: true
+
+  deleteData:
+    handler: src/dataDelete.deleteData
+    description: Lambda function to delete data
+    memorySize: 256
+    events:
+      - http:
+          path: /delete
+          method: delete
           cors: true
