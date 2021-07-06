@@ -6,7 +6,7 @@ import { resolve } from 'path';
 const config: Configuration = {
   // mode: process.env.NODE_ENV === 'dev' ? 'development' : 'production',
   // entry: slsw.lib.entries,
-    entry: { functions: './src/functions.ts'},
+    entry: { dataPost: './src/dataPost.ts', dataGet: './src/dataGet.ts', dataDelete: './src/dataDelete.ts'},
     output: {
       filename: '[name].js',
       libraryTarget: 'commonjs2',
