@@ -33,37 +33,29 @@ export async function postData (event: APIGatewayProxyEvent, context: Context): 
     "id": uuid.v4(),
     "name": name,
     "done": done
-    });
+  });
 
-    try {
-        await myUser.save();
-        console.log("Save operation was successful.");
-    } catch (error) {
-        console.error(error);
-    }
-  
-    //   try {
-    //     var newData = await todoSchema.create({ id: uuid.v4(), name: name, done: done });
-    //     console.log(newData);
-    //     } catch (error) {
-    //     console.error(error);
-    //     }
+  try {
+    await myUser.save();
+    console.log("Save operation was successful");
+  } catch (error) {
+    console.error(error);
+  }
 
-    //   const docClient = new AWS.DynamoDB.DocumentClient();
-    //   const todo: todoSchema = { id, done: false, createdAt: new Date().toISOString(), name };
+  //   const docClient = new AWS.DynamoDB.DocumentClient();
+  //   const todo: todoSchema = { id, done: false, createdAt: new Date().toISOString(), name };
+  //   await docClient.put({
+  //     TableName: process.env.TODOS_TABLE,
+  //     Item: todo
+  //   }).promise();
 
-    //   await docClient.put({
-    //     TableName: process.env.TODOS_TABLE,
-    //     Item: todo
-    //   }).promise();
-
-    return {
-        statusCode: 201,
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-        },
-        body: JSON.stringify({
-            item: myUser
-        })
-    };
+  return {
+      statusCode: 201,
+      headers: {
+          'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({
+          item: myUser
+      })
+  };
 };
