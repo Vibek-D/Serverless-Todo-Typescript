@@ -1,7 +1,0 @@
-{
-    "Table": {
-        "TableName": "serverless-table",
-        "KeySchema": {
-        }
-    }
-}

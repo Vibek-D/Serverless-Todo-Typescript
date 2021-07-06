@@ -32,12 +32,6 @@ async function postData(event, context) {
     catch (error) {
         console.error(error);
     }
-    //   try {
-    //     var newData = await todoSchema.create({ id: uuid.v4(), name: name, done: done });
-    //     console.log(newData);
-    //     } catch (error) {
-    //     console.error(error);
-    //     }
     //   const docClient = new AWS.DynamoDB.DocumentClient();
     //   const todo: todoSchema = { id, done: false, createdAt: new Date().toISOString(), name };
     //   await docClient.put({
