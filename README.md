@@ -9,3 +9,7 @@ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -inMemory -p
 
 Step-3
 npm run dev or sls offline start
+
+Step-4 
+before deploying to aws ec2 or elb, build the files run the command
+npm run build
