@@ -15,7 +15,7 @@ custom:
   serverless-offline:
     httpPort: 4000
   webpack:
-    webpackConfig: './webpack.config.js'
+    webpackConfig: './webpack.config.ts'
     includeModules: false
     packager: 'npm'
   dynamodb:
