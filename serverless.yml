@@ -35,6 +35,8 @@ functions:
     handler: src/dataGet.getData
     description: Lambda function to get data
     memorySize: 256
+    environment:
+      ES_DOMAIN: ${ssm:/km/${self:custom.stage}/ES_DOMAIN}
     events:
       - http:
           path: /get
@@ -45,6 +47,8 @@ functions:
     handler: src/dataPost.postData
     description: Lambda function to post data
     memorySize: 256
+    environment:
+      ES_DOMAIN: ${ssm:/km/${self:custom.stage}/ES_DOMAIN}
     events:
       - http:
           path: /post
@@ -55,6 +59,8 @@ functions:
     handler: src/dataDelete.deleteData
     description: Lambda function to delete data
     memorySize: 256
+    environment:
+      ES_DOMAIN: ${ssm:/km/${self:custom.stage}/ES_DOMAIN}
     events:
       - http:
           path: /delete
